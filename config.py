@@ -1,0 +1,18 @@
+TOKEN = "1790223542:AAF2EzYjL-e0HVUO-Tpyw0WPvKcYpaybaUg"
+ADMIN_ID = 1342133634
+SKIP_PENDING = False
+PLAYERS_COUNT_TO_START = 1
+PLAYERS_COUNT_LIMIT = 10
+REQUEST_OVERDUE_TIME = 60
+WORD_BASE = '/root/sozler.txt'
+DELETE_FROM_EVERYONE = False
+
+SET_WEBHOOK = True
+if SET_WEBHOOK:
+    SERVER_IP = 'localhost'
+    SERVER_PORT = 80
+    SSL_CERT = '/root/cert/PUBLIC.pem'
+    SSL_PRIV = '/root/cert/PRIVATE.key'
+
+import logging
+LOGGER_LEVEL = logging.INFO
