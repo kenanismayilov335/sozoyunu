@@ -65,13 +65,13 @@ def button(update, context):
 def command_start(update, context: CallbackContext):
     if update.effective_chat.type == "private":
         
-        addme = InlineKeyboardButton(text="Məni qrupuna əlavə et", url="https://t.me/BestSozOyunuBot?startgroup=a")
-        sohbet = InlineKeyboardButton(text="Kanalımız", url="https://t.me/lordbotz")
-        admin = InlineKeyboardButton(text="Məni yaradan", url="https://t.me/yusiqo")
+        addme = InlineKeyboardButton(text="Beni Grupa Ekle", url="https://t.me/BestSozOyunuBot?startgroup=a")
+        sohbet = InlineKeyboardButton(text="Kanalımız", url="https://t.me/RobotRoom")
+        admin = InlineKeyboardButton(text="Beni Oluşturan", url="https://t.me/KenanBitcoin")
 
         keyboard = [[addme],[sohbet],[admin]]
         reply_markup = InlineKeyboardMarkup(keyboard)
-        update.message.reply_text('Özəl söhbətdə oyun başlaya bilməz!', reply_to_message_id=True, reply_markup=reply_markup)
+        update.message.reply_text('*Yalnız Gruplarda Oyun Başlatılır!*', reply_to_message_id=True, reply_markup=reply_markup)
     else:
         chat_id = update.message.chat.id
         user_id = update.message.from_user.id
@@ -85,7 +85,7 @@ def command_start(update, context: CallbackContext):
         game = get_or_create_game(chat_id)
         game.start()
 
-        update.message.reply_text('Diqqətli olun! oyun başladı!😎'.format(username), reply_to_message_id=True)
+        update.message.reply_text('*Dikkatli Olun Oyun Başladı* 🎉'.format(username), reply_to_message_id=True)
 
         set_master(update, context)
 
@@ -102,15 +102,15 @@ def set_master(update, context):
 
     game.set_master(update.message.from_user.id)
 
-    show_word_btn = InlineKeyboardButton("Sözə bax 👀", callback_data='show_word')
-    change_word_btn = InlineKeyboardButton("Sözü dəyişdir ♻️", callback_data='change_word')
+    show_word_btn = InlineKeyboardButton("Kelimeye Bak 👀", callback_data='show_word')
+    change_word_btn = InlineKeyboardButton("Kelimeyi Değiş ♻️", callback_data='change_word')
 
     keyboard = [[show_word_btn], [change_word_btn]]
     reply_markup = InlineKeyboardMarkup(keyboard)
 
-    update.message.reply_text('[{}](tg://user?id={}) *Sözü başa salır!*🤔 🇦🇿'.format(username,user_id), reply_to_message_id=True, reply_markup=reply_markup, parse_mode=ParseMode.MARKDOWN)
+    update.message.reply_text('[{}](tg://user?id={}) *Kelimeyi Anlatıyor!*🤔 🇹🇷'.format(username,user_id), reply_to_message_id=True, reply_markup=reply_markup, parse_mode=ParseMode.MARKDOWN)
     if game.is_master_time_left():
-        update.message.reply_text('Səhər açıldı ama hələ sözü tapmadız ☹️'.format(game.get_master_time_left()),
+        update.message.reply_text(' Hala Kelimeyi Bulamadınız ☹️'.format(game.get_master_time_left()),
                                   reply_to_message_id=True)
         return
 
@@ -124,7 +124,7 @@ def command_master(update: Update, context):
         return
 
     if not game.is_master_time_left():
-        update.message.reply_text('Aparıcı olmaq üçün {} saniyə var ☹️'.format(game.get_master_time_left()),
+        update.message.reply_text(' Sunucu Olman İçin {} Saniye Bekleyiniz ☹️'.format(game.get_master_time_left()),
                                   reply_to_message_id=True)
         return
 
