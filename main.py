@@ -37,9 +37,9 @@ def setup_logger():
 
 
 def help(update, context):
-    update.message.reply_text('**Oyun Komutları** ⌨️\n\n' +
-                              '/oyna - **Yeni bir oyun başlat**\n' +
-                              '/sunucu - **Sunucu ol**', reply_to_message_id=True)
+    update.message.reply_text('Oyun Komutları ⌨️\n\n' +
+                              '/oyna - Yeni bir oyun başlat\n' +
+                              '/sunucu - Sunucu ol', reply_to_message_id=True)
 
 
 def button(update, context):
@@ -71,7 +71,7 @@ def command_start(update, context: CallbackContext):
 
         keyboard = [[addme],[sohbet],[admin]]
         reply_markup = InlineKeyboardMarkup(keyboard)
-        update.message.reply_text('**Merhaba Bota Hoş Geldiniz.\n Oyun Yalnız Gruplarda Başlatılır!**', reply_to_message_id=True, reply_markup=reply_markup)
+        update.message.reply_text('Merhaba Bota Hoş Geldiniz.\n Oyun Yalnız Gruplarda Başlatılır!', reply_to_message_id=True, reply_markup=reply_markup)
     else:
         chat_id = update.message.chat.id
         user_id = update.message.from_user.id
@@ -85,7 +85,7 @@ def command_start(update, context: CallbackContext):
         game = get_or_create_game(chat_id)
         game.start()
 
-        update.message.reply_text('**Dikkatli Olun Oyun Başladı** 🎉'.format(username), reply_to_message_id=True)
+        update.message.reply_text('Dikkatli Olun Oyun Başladı 🎉'.format(username), reply_to_message_id=True)
 
         set_master(update, context)
 
@@ -108,9 +108,9 @@ def set_master(update, context):
     keyboard = [[show_word_btn], [change_word_btn]]
     reply_markup = InlineKeyboardMarkup(keyboard)
 
-    update.message.reply_text('[{}](tg://user?id={}) **Kelimeyi Anlatıyor!**🤔 🇹🇷'.format(username,user_id), reply_to_message_id=True, reply_markup=reply_markup, parse_mode=ParseMode.MARKDOWN)
+    update.message.reply_text('[{}](tg://user?id={}) Kelimeyi Anlatıyor!🤔 🇹🇷'.format(username,user_id), reply_to_message_id=True, reply_markup=reply_markup, parse_mode=ParseMode.MARKDOWN)
     if game.is_master_time_left():
-        update.message.reply_text('**Hala Kelimeyi Bulamadınız** ☹️'.format(game.get_master_time_left()),
+        update.message.reply_text('Hala Kelimeyi Bulamadınız ☹️'.format(game.get_master_time_left()),
                                   reply_to_message_id=True)
         return
 
