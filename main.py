@@ -37,9 +37,9 @@ def setup_logger():
 
 
 def help(update, context):
-    update.message.reply_text('Oyun üçün əmrlər ⌨️\n\n' +
-                              '/basla - Yeni bir oyun başlat\n' +
-                              '/aparici - Aparıcı ol', reply_to_message_id=True)
+    update.message.reply_text('Oyun Komutları ⌨️\n\n' +
+                              '/oyna - Yeni bir oyun başlat\n' +
+                              '/sunucu - Sunucu ol', reply_to_message_id=True)
 
 
 def button(update, context):
@@ -65,7 +65,7 @@ def button(update, context):
 def command_start(update, context: CallbackContext):
     if update.effective_chat.type == "private":
         
-        addme = InlineKeyboardButton(text="Beni Grupa Ekle", url="https://t.me/BestSozOyunuBot?startgroup=a")
+        addme = InlineKeyboardButton(text="Beni Grupa Ekle", url="https://t.me/KelimeyiBulBot?startgroup=a")
         sohbet = InlineKeyboardButton(text="Kanalımız", url="https://t.me/RobotRoom")
         admin = InlineKeyboardButton(text="Beni Oluşturan", url="https://t.me/KenanBitcoin")
 
@@ -206,7 +206,7 @@ def is_word_answered(update, context):
     word = game.get_current_word()
 
     if game.is_word_answered(user_id, text):
-        update.message.reply_text('*{}* sözünü [{}](tg://user?id={}) tapdı ✅'.format(word, username,user_id), reply_to_message_id=True, parse_mode=ParseMode.MARKDOWN)
+        update.message.reply_text('*{}* Kelimesini [{}](tg://user?id={}) Buldu ✅'.format(word, username,user_id), reply_to_message_id=True, parse_mode=ParseMode.MARKDOWN)
 
         game.update_rating(user_id, username)
 
@@ -234,12 +234,12 @@ def main():
 
     dp = updater.dispatcher
 
-    dp.add_handler(CommandHandler("basla", command_start))
-    dp.add_handler(CommandHandler("aparici", command_master))
+    dp.add_handler(CommandHandler("oyna", command_start))
+    dp.add_handler(CommandHandler("sunucu", command_master))
     dp.add_handler(CommandHandler("show_word", command_show_word))
     dp.add_handler(CommandHandler("change_word", command_change_word))
-    dp.add_handler(CommandHandler("reytinq", command_rating))
-    dp.add_handler(CommandHandler("komek", help))
+    dp.add_handler(CommandHandler("degerlendirme", command_rating))
+    dp.add_handler(CommandHandler("yardim", help))
     dp.add_handler(CommandHandler("start", command_start))
 
     dp.add_handler(CallbackQueryHandler(button))
