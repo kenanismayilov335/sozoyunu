@@ -104,9 +104,9 @@ def set_master(update, context):
 
     show_word_btn = InlineKeyboardButton("Sözə bax 👀", callback_data='show_word')
     change_word_btn = InlineKeyboardButton("Sözü dəyişdir ♻️", callback_data='change_word')
-    master_btn = InlineKeyboardButton("Aparıcı Ol ⚙️", callback_data='aparici')
 
-    keyboard = [[show_word_btn], [[master_btn], [change_word_btn]]
+
+    keyboard = [[show_word_btn],[change_word_btn]]
     reply_markup = InlineKeyboardMarkup(keyboard)
 
     update.message.reply_text('[{}](tg://user?id={}) *Sözü başa salır!*🤔 🇦🇿'.format(username,user_id), reply_to_message_id=True, reply_markup=reply_markup, parse_mode=ParseMode.MARKDOWN)
