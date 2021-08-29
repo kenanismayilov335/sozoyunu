@@ -65,13 +65,13 @@ def button(update, context):
 def command_start(update, context: CallbackContext):
     if update.effective_chat.type == "private":
         
-        addme = InlineKeyboardButton(text="Məni qrupuna əlavə et", url="https://t.me/BestSozOyunuBot?startgroup=a")
-        sohbet = InlineKeyboardButton(text="Kanalımız", url="https://t.me/lordbotz")
-        admin = InlineKeyboardButton(text="Məni yaradan", url="https://t.me/yusiqo")
+        addme = InlineKeyboardButton(text=" 🏆Məni qrupuna əlavə et", url="https://t.me/SozOyunuFarzBot?startgroup=a")
+        sohbet = InlineKeyboardButton(text="🇦🇿 Kanalımız", url="https://t.me/FARZBotSs")
+        admin = InlineKeyboardButton(text="💥 Support", url="https://t.me/FARZbotSupport")
 
         keyboard = [[addme],[sohbet],[admin]]
         reply_markup = InlineKeyboardMarkup(keyboard)
-        update.message.reply_text('Özəl söhbətdə oyun başlaya bilməz!', reply_to_message_id=True, reply_markup=reply_markup)
+        update.message.reply_text(' Salam Mən Söz Oyun Botuyam Oynamaq Üçün Məni Qrupunuza Əlave Edin!', reply_to_message_id=True, reply_markup=reply_markup)
     else:
         chat_id = update.message.chat.id
         user_id = update.message.from_user.id
