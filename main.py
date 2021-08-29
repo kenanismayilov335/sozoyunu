@@ -77,7 +77,7 @@ def command_start(update, context: CallbackContext):
         user_id = update.message.from_user.id
         username = update.message.from_user.full_name
 
-        logger.info('Got command /basla@SozOyunuFarzBot,'
+        logger.info('Got command /basla,'
                     'chat_id={},'
                     'user_id'.format(chat_id,
                                      user_id))
