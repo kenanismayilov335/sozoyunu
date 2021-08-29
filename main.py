@@ -189,7 +189,7 @@ def command_rating(update, context):
 
     rating_str = game.get_str_rating()
 
-    logger.info('Got command /reytinq,'
+    logger.info('Got command /reytinq@SozOyunuFarzBot,'
                 'chat_id={},'
                 'rating={}'.format(update.message.chat.id,
                                    rating_str))
