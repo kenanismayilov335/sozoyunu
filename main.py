@@ -38,8 +38,8 @@ def setup_logger():
 
 def help(update, context):
     update.message.reply_text('Oyun üçün əmrlər ⌨️\n\n' +
-                              '/basla - Yeni bir oyun başlat\n' +
-                              '/aparici - Aparıcı ol', reply_to_message_id=True)
+                              '/basla@SozOyunuFarzBot - Yeni bir oyun başlat\n' +
+                              '/aparici@SozOyunuFarzBot - Aparıcı ol', reply_to_message_id=True)
 
 
 def button(update, context):
