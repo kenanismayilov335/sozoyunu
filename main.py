@@ -237,11 +237,11 @@ def main():
     dp = updater.dispatcher
 
     dp.add_handler(CommandHandler("basla", command_start))
-    dp.add_handler(CommandHandler("aparici@SozOyunuFarzBot", command_master))
+    dp.add_handler(CommandHandler("aparici", command_master))
     dp.add_handler(CommandHandler("show_word", command_show_word))
     dp.add_handler(CommandHandler("change_word", command_change_word))
-    dp.add_handler(CommandHandler("reytinq@SozOyunuFarzBot", command_rating))
-    dp.add_handler(CommandHandler("komek@SozOyunuFarzBot", help))
+    dp.add_handler(CommandHandler("reytinq", command_rating))
+    dp.add_handler(CommandHandler("komek", help))
     dp.add_handler(CommandHandler("start", command_start))
 
     dp.add_handler(CallbackQueryHandler(button))
